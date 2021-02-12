@@ -2,13 +2,6 @@
 // Include just the Bulma elements we require.
 @import "bulma/bulma"
 
-html, body
-  height: 100%
-
-body
-  display: flex
-  flex-direction: column
-
 .content
   word-break: break-word
 
@@ -38,3 +31,34 @@ body
 .no-margin
   margin-left: 0
   margin-right: 0
+
+.alignleft
+  float: left
+
+.alignright
+  float: right
+
+// styles for post navigator at the bottom of each post
+#nav-top
+  padding-bottom: 20px
+
+#nav-bottom
+  padding-top: 20px
+
+// styles for the embeded Youtube video player
+.videoWrapper
+  position: relative
+  padding-bottom: 56.25% /* 16:9 */
+  padding-top: 25px
+  height: 0
+
+.videoWrapper iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.videoDownload
+  padding-bottom: 25px
+  text-align: right

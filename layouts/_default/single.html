@@ -7,11 +7,11 @@
     <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
       {{ .Date.Format "January 02, 2006" }}
     </time>
-    {{ if .Param "tags" }}
+    {{ if .Param "categories" }}
     <br>
-    {{ range .Param "tags" }}
+    {{ range .Param "categories" }}
     {{ $name := . }}
-    {{ with $.Site.GetPage (printf "/%s/%s" "tags" ($name | urlize)) }}
+    {{ with $.Site.GetPage (printf "/%s/%s" "categories" ($name | urlize)) }}
     <a class="tag is-link" href="{{ .Permalink }}">{{ .Title }}</a>
     {{ end }}
     {{ end }}
@@ -21,8 +21,23 @@
 {{ end }}
 
 {{ define "main" }}
+
 <div class="content is-medium">
   {{ .Content }}
+</div>
+
+<div id="nav-bottom">
+  <p class="alignleft">
+    {{ if .PrevPage }}
+    <a class="link-reverse" href="{{ .PrevPage.Permalink }}">« previous: {{ .PrevPage.Title | truncate 50 "..."}}</a>
+    {{ end }}    
+  </p>
+  <p class="alignright">
+    {{ if .NextPage }}
+    <a class="link-reverse" href="{{ .NextPage.Permalink }}">next: {{ .NextPage.Title | truncate 50 "..." }} »</a>
+    {{ end }}
+  </p>
+  <div style="clear: both;"></div>
 </div>
 
 {{ end }}
